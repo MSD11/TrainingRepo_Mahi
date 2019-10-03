@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Tablecolumns {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver", "C:\\exefiles\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
+		List<WebElement> firstcolumn= driver.findElements(By.cssSelector("tr td:nth-child(2)"));
+		ArrayList<String> originalList= new ArrayList<String>();
+		for (int i=0;i<firstcolumn.size();i++)
+		{
+			System.out.println(firstcolumn.get(i).getText());
+		}
+	}
+
+}
